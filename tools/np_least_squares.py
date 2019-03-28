@@ -87,6 +87,7 @@ def wls_gen(X, Y, dX=None, dY=None, functions=None, d_functions=None):
     # default functions is linear proportional
     if functions is None:
         functions = [lambda x: x, lambda x: np.ones(X.shape)]
+        d_functions = [lambda x: np.ones(X.Shape), lambda x: np.zeros(X.Shape)]
 
     F = np.array([f(X) for f in functions]).T
     A, dA, args = wls(F, Y, dY=dY)
